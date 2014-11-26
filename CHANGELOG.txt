@@ -1,0 +1,7 @@
+Version V0.3
+Changements :
+- Remaniement global du projet pour en faire une correction
+- choix d'un theme bootswatch http://bootswatch.com/ Le theme Cerulean
+Version V0.2
+Changements :
+- Connexion à la base de données
