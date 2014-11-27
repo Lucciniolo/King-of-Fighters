@@ -1,5 +1,6 @@
 <?php
-$bdd = mysqli_connect('localhost', 'qdsqsdqsdqsdqsdq', 'kodsdf', 'kof');
+include('kof.php');
+$bdd = mysqli_connect('localhost', 'compte', 'motdepasse', 'kof');
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +53,7 @@ $bdd = mysqli_connect('localhost', 'qdsqsdqsdqsdqsdq', 'kodsdf', 'kof');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">T-KOF</a>
+          <a class="navbar-brand" href="/King%20of%20fighters/">T-KOF</a>
         </div>
       <ul class="nav navbar-nav">
         <li>
@@ -64,9 +65,6 @@ $bdd = mysqli_connect('localhost', 'qdsqsdqsdqsdqsdq', 'kodsdf', 'kof');
         <li>
           <a href="joueurs.php">Liste des joueurs</a>
         </li>
-        <li>
-          <a href="../inscription.php">S'inscrire</a>
-        </li>
       </ul>
               <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
@@ -77,6 +75,7 @@ $bdd = mysqli_connect('localhost', 'qdsqsdqsdqsdqsdq', 'kodsdf', 'kof');
               <input type="password" placeholder="Mot de passe" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Se connecter</button>
+            <a href="inscription.php"class="btn btn-success">S'inscrire</a>
           </form>
         </div><!--/.navbar-collapse -->
       </div>

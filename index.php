@@ -2,21 +2,21 @@
 
 <?php
 
-$resultat = mysqli_query($bdd, 'SELECT max(saison), max(journee) FROM positions');
-while($donnees = mysqli_fetch_assoc($resultat))
-{
-  $maxSaison = $donnees['max(saison)'];
-  echo "\n";
-  $maxJournee = $donnees['max(journee)'];
-}
-mysqli_free_result($resultat);
+// On va récupreer la journée Maximum de la dernière saison 
+//$maxSaison = saisonMaximum();
+// On récupère la journee maximum de la saison maximum
+$rMaxJournee = mysqli_query($bdd, "SELECT max(journee) FROM positions where saison=$maxSaison");
+$donnees = mysqli_fetch_assoc($rMaxJournee);
+$maxJournee = $donnees['max(journee)'];
+mysqli_free_result($rMaxJournee);
+
 ?>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
         <h1>Tournois King Of Fighters</h1>
-        <p>Bienvenur sur T-KOF, site de gestionde tournoi de King Of Fighters en ligne. Nous sommes actuellement à la journée <?php echo $maxJournee;  ?> de la saison <?php echo $maxSaison;  ?>. N'hésitez pas à vous inscrire pour rejoindre les combats.</p>
+        <p>Bienvenur sur T-KOF, site de gestionde tournoi de King Of Fighters en ligne. <b>Nous sommes actuellement à la journée <?php echo $maxJournee;  ?> de la saison <?php echo $maxSaison;  ?> </b>. N'hésitez pas à vous inscrire pour rejoindre les combats.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">En savoir plus &raquo;</a></p>
       </div>
     </div>

@@ -1,21 +1,10 @@
 <?php include("header.php"); ?>
 
-<div class="container">
-	<p>Salut sdles joueurs !<p>
-			<p>Salut sdles joueurs !<p>
-
-
-
-	<p>Salut sdles joueurs !<p>
-
-
-</div>
-
 <?php
 if($bdd == True)
 {
     // Si la connexion a réussi
-	$requete = "SELECT nom, prenom FROM joueurs";
+	$requete = "SELECT * FROM joueurs";
 	$resultat = mysqli_query($bdd, $requete);
 }
 else // Mais si elle rate…
@@ -26,18 +15,28 @@ else // Mais si elle rate…
 
 	echo "<tr>";
 		
-		echo ' <th>Nom</th> <th>Prenom</th> ';
+		echo ' <th>Pseudo</th> <th>Nom</th> <th>Prenom</th> <th>Image</th>';
 		 while($donnees = mysqli_fetch_assoc($resultat))
 			{
 				echo "<tr>";
 				echo "<td>";
+				echo $donnees['Pseudo'];
+				echo "</td>";
+				
+				echo "<td>";
 				echo $donnees['nom'];
 				echo "</td>";
+				echo"<br/>";
 				
 				echo "<td>";
 				echo $donnees['prenom'];
 				echo "</td>";
 				echo"<br/>";
+
+				echo "<td>";
+				echo '<img src="'.$donnees['image'].'" alt="'.$donnees['Pseudo'].'">';
+				echo "</td>";
+				echo"<br/>";				
 				echo "</tr>";
 			}
 	echo "</tr>";

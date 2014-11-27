@@ -1,6 +1,6 @@
     <hr>
 
-      <footer>
+      <footer style="margin-top: 50px;">
         <p>&copy; WebForce3 2014 - Promotion février 2014 </p>
         <p><a class="btn btn-default" href="#" role="button">Administration &raquo;</a></p>
       </footer>
