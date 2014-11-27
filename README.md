@@ -1,3 +1,10 @@
+
+*Installation*
+
+Pour installer T-KOF, vous devez changer dans le fichier de configuration :
+
+
+
 Fonctionnalités 
 
 1. Nouvelle journée

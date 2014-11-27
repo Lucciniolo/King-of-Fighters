@@ -54,5 +54,16 @@ function saisonMaximum(){
 	return $maxSaison;
 }
 
+// renvoie la journée maximum d'une saison
+function journeeMaximum($maxSaison){
+ 	// On va récupreer la journée Maximum de la dernière saison 
+	global $bdd;
+	$rMaxJournee = mysqli_query($bdd, "SELECT max(journee) FROM positions where saison=$maxSaison");
+	$donnees = mysqli_fetch_assoc($rMaxJournee);
+	$maxJournee = $donnees['max(journee)'];
+	mysqli_free_result($rMaxJournee);
+	
+	return $maxJournee;
+}
 
  ?>

@@ -1,6 +1,8 @@
 <?php
-include('kof.php');
+include('configuration.php');
 $bdd = mysqli_connect('localhost', 'compte', 'motdepasse', 'kof');
+include('kof.php');
+
 ?>
 
 <!DOCTYPE html>
