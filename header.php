@@ -22,7 +22,7 @@ $bdd = mysqli_connect('localhost', 'qdsqsdqsdqsdqsdq', 'kodsdf', 'kof');
 
   </style>
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>T-KOF : tournois de King of Fighters</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
