@@ -18,6 +18,9 @@ vous devez ensuite modifier le fichier de configuration pour y inserer les infor
 * Le dossier documentation contient toutes la documentation nécessaire pour comprendre le projet
 * le dossier "base de données" contient la dernière version de la base de données d'essai que vous pouvez importer.
 
+# Documentation
+
+La documentation se trouve [ici](doc/documentation.md)
 
 #Pages
 
