@@ -7,13 +7,12 @@
  Sommaire:
 
  - [joueurs.php](joueurs.md)
- - [classement.php](classement.mddown)
+ - [classement.php](classement.md)
  - [ancienClassement.php](anciensClassements.md)
  - [header.php](header-footer.md)
  - [footer.php](header-footer.md)
  - [configuration.php](configuration.md)
  - [kof.php](kof.md)
-
 
  
  Sous l'impulsion du professeur de PHP, le projet a permis d'aborder les thèmes techniques suivants:
