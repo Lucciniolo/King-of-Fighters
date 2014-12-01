@@ -2,8 +2,8 @@
 
 Ce fichier contient les parametres de connexion pour se connecter à notre serveur.
 
-Il contient les variables suivantes :
-	* $serveur > Nom du serveur
-	* $utlisateur > Nom de l'utilisateur
-	* $motdepasse > Mot de passe
-	* $basesdedonnees > Nom de la BDD
+* Il contient les variables suivantes :
+	* _$serveur_ > Nom du **serveur**
+	* _$utlisateur_ > Nom de l'**utilisateur**
+	* _$motdepasse_ > **Mot de passe**
+	* _$basesdedonnees_ > Nom de la **BDD**
