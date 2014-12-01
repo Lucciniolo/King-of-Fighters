@@ -1,4 +1,7 @@
-<?php include("header.php"); ?>
+<?php include("header.php");
+// Voir documentation doc/anciensClassements.md
+
+ ?>
 <div class="container">
 
 <br>
@@ -6,20 +9,13 @@
 <br>
 <?php
 
+// Si la connexion a réussi
 if($bdd == True)
 {
-    // Si la connexion a réussi
     // On récupère la saison max
-	$rMaxSaison = "SELECT max(saison) FROM positions";
-	$resultat = mysqli_query($bdd, $rMaxSaison);
+	$maxSaison = saisonMaximum();
 
-	while($donnees = mysqli_fetch_assoc($resultat))
-			{
-				$maxSaison = $donnees['max(saison)'];
-			}
-
-	mysqli_free_result($resultat);
-
+  // Récupère dans la table "position" toutes les saisons passées. N'affiche donc pas la saison actuelle (strictement inférieur)
 	$resultat = mysqli_query($bdd, "SELECT DISTINCT saison FROM positions WHERE saison < $maxSaison ");
 
 
@@ -56,4 +52,5 @@ else // Mais si elle rate…
       } ?>
 
 </div>
-<?php include("footer.php"); ?>
+<?php 
+include("footer.php"); ?>
