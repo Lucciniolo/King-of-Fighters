@@ -7,6 +7,8 @@ Il s'agit d'un affichage simple au chargement de la page et ne requiert pas d'ac
 ## Les requêtes SQL nécéssaires
 Il faut récupérer dans la table "joueurs", les noms, prénoms et images des joueurs inscrits.
 
+<code> $players = mysqli_query($bdd, 'SELECT prenom, nom, image FROM joueurs LIMIT 0,20'); </code>
+
 ## Affichage du tableau
 Avec le language php, utiliser "echo" pour ouvrir un tableau à 3 colonnes et utilisant les class de mise en forme de bootstrap.
 
