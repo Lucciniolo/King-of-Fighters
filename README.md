@@ -20,7 +20,7 @@ vous devez ensuite modifier le fichier de configuration pour y inserer les infor
 
 # Documentation
 
-La documentation se trouve [ici](doc/documentation.md)
+La documentation se trouve [ici](doc/INDEX.md). Les pages sont détaillées une à une. Des [tutoriels](doc/tutoriels/INDEX.md) sont également disponibles.
 
 #Pages
 

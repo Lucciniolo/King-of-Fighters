@@ -3,7 +3,19 @@
 ## Objet de l'application
  Le projet King of Fighter est un projet de groupe initié dans le cadre de la formation webforce 3, promotion 3 d'octobre 2014 à février 2015.
  Enthousiamés par le jeu vidéo King of Fighter de la fin des années 90, 5 joueurs de la promotion se sont lancés dans une compétition pour determiner le meilleur joueur.
+ 
+ Sommaire:
 
+ - [joueurs.php](doc/joueurs.md)
+ - [classement.php](doc/classement.mddown)
+ - [ancienClassement.php](doc/anciensClassements.md)
+ - [header.php](header-footer.md)
+ - [footer.php](header-footer.md)
+ - [configuration.php](doc/configuration.md)
+ - [kof.php](doc/kof.md)
+
+
+ 
  Sous l'impulsion du professeur de PHP, le projet a permis d'aborder les thèmes techniques suivants:
  
 ### 1 - Structuration d'un programme informatique de site web via :
@@ -34,25 +46,25 @@ Pour importer la base de données : importer le fichier "kof.sql" du dossier "ba
 
 #### 3.1 - l'accueil
 
-#### 3.2 - la liste des joueurs: rédacteurs Florian et Alexandro [joueurs.php](lien vers le fichier)
+#### 3.2 - la liste des joueurs: rédacteurs Florian et Alexandro [joueurs.php](doc/joueurs.md)
 Afficher la liste de tous les joueurs sous forme de tableau via une requête SQL
 
-#### 3.3 - Le classement des 3 premiers joueurs de la derniere journee de la derniere saison: rédacteurs Alexandre et Julien [classement.php](lien vers le fichier)
+#### 3.3 - Le classement des 3 premiers joueurs de la derniere journee de la derniere saison: rédacteurs Alexandre et Julien [classement.php](doc/classement.mddown)
 Obtenir le classement de la dernière journée de la dernière saison et afficher le classement des joueurs dans l'ordre croissant via des requêtes SQL
 
-#### 3.4- Le classement des 3 premiers joueurs des journees et des saisons précédentes: rédacteurs Alexandre et Julien [classement.php](lien vers le fichier)
+#### 3.4- Le classement des 3 premiers joueurs des journees et des saisons précédentes: rédacteurs Alexandre et Julien [ancienClassement.php](doc/anciensClassements.md)
 Obtenir le classement de chaque saison et de chaque journée pour afficher le classement des joueurs dans l'ordre croissant via des requêtes SQL
 
 #### 3.5 - la page d'inscription au tournoi : en cours de construction
 _____________
 
 Fichiers de structure :
-#### 3.6 - Header, footer et configuration:  rédacteurs Maria et Khaled [configuration.php](lien vers le fichier)
+#### 3.6 - Header, footer et configuration:  rédacteurs Maria et Khaled [header.php](header-footer.md), [footer.php](header-footer.md), [configuration.php](doc/configuration.md)
 Insertion dans le header des informations pour la connection au serveur et des propriétés HTML Bootstrap
 Insertion dans le footer des script javascript et des informations copyrigth
 Insertion dans le fichier de configuration des identifiants et mots de passe de connection à la base de données
 
-#### 3.7 - Fichier dédié aux principales fonctions: redacteurs Paul, Valérian et Kéroan [kof.php](lien vers le fichier)
+#### 3.7 - Fichier dédié aux principales fonctions: redacteurs Paul, Valérian et Kéroan [kof.php](doc/kof.md)
 Code des 5 fonctions les plus utilisées :
 
 - création d'une journée de tournoi
