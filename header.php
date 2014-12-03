@@ -55,13 +55,13 @@ include('kof.php');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/King%20of%20fighters/">T-KOF</a>
+          <a class="navbar-brand" href="/King-of-Fighters/">T-KOF</a>
         </div>
       <ul class="nav navbar-nav">
         <li>
           <a href="classement.php">Classement actuel</a>
         </li>
-        <li class="active">
+        <li>
           <a href="ancienClassement.php">Anciens classements</a>
         </li>
         <li>
