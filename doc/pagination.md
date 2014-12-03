@@ -41,16 +41,16 @@ traduction issue de : http://www.petefreitag.com/item/451.cfm
 
 ## Requête
 	$sql = ................... LIMIT ........ OFFSET
-	$resultat = mysql_query($sql);
+	$resultat = mysqli_query($sql);
 
 ## Boucle d'affichage des données
-	while ( $donnee = mysql_fetch_assoc($resultat) ) {
+	while ( $donnee = mysqli_fetch_assoc($resultat) ) {
 			..................
 	}
 
 ## Nombre d'enregistrement total 
-	$nb_total = mysql_query('SELECT COUNT(*) AS nb_total FROM table');
-	$nb_total = mysql_fetch_array($nb_total);
+	$nb_total = mysqli_query('SELECT COUNT(*) AS nb_total FROM table');
+	$nb_total = mysqli_fetch_array($nb_total);
 	$nb_total = $nb_total['nb_total'];
 
 ## Nombre de pages
