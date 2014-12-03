@@ -61,6 +61,7 @@ ceil() — Arrondit au nombre supérieur
 ## Affichage de la pagination avec lien 
 
 Penser à mettre un lien sur chaque page. Pour se faire, se rappeler que l'on a utilisé une methode GET pour transmettre les pages et que donc on peut accéder aux pages via l'URL.
+Par exemple en tappant http://localhost/King-of-Fighters/joueurs.php?page=2, on accedera à la page 2
 
 	echo '<p>[ Page :';
 	// Boucle sur les pages
@@ -71,3 +72,4 @@ Penser à mettre un lien sur chaque page. Pour se faire, se rappeler que l'on a 
 	        .....................
 	}
 	echo ' ]</p>';
+
