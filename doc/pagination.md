@@ -24,39 +24,41 @@ affichera la commande 10252 et la commande 10253 (deux commandes car LIMIT est �
 
 traduction issue de : http://www.petefreitag.com/item/451.cfm
 
-# On définit en premier lieu le numero de la page
+# Exemple concret sur T-KOF : pagination sur la page joueurs
+
+## On définit en premier lieu le numero de la page
 
 	if( isset($_GET['page']) && is_numeric($_GET['page']) )
 	    $page = ..............;
 	else
 	    $page = 1;
 
-# Définir le nombre de tuples affichés par page
+## Définir le nombre de tuples affichés par page
 	$pagination = 10;
 
-# Numero du premier tuple à lire
+## Numero du premier tuple à lire
 	$limit_start = ($page - 1) * $pagination;
 
-# Requête
+## Requête
 	$sql = ................... LIMIT ........ OFFSET
 	$resultat = mysql_query($sql);
 
-# Boucle d'affichage des données
+## Boucle d'affichage des données
 	while ( $donnee = mysql_fetch_assoc($resultat) ) {
 			..................
 	}
 
-# Nombre d'enregistrement total 
+## Nombre d'enregistrement total 
 	$nb_total = mysql_query('SELECT COUNT(*) AS nb_total FROM table');
 	$nb_total = mysql_fetch_array($nb_total);
 	$nb_total = $nb_total['nb_total'];
 
-# Nombre de pages
+## Nombre de pages
 	$nb_pages = ceil($nb_total / $pagination);
 
 ceil() — Arrondit au nombre supérieur
 
-# Affichage de la pagination avec lien 
+## Affichage de la pagination avec lien 
 
 Penser à mettre un lien sur chaque page. Pour se faire, se rappeler que l'on a utilisé une methode GET pour transmettre les pages et que donc on peut accéder aux pages via l'URL.
 
@@ -69,6 +71,3 @@ Penser à mettre un lien sur chaque page. Pour se faire, se rappeler que l'on a 
 	        .....................
 	}
 	echo ' ]</p>';
-
-<?php
-
