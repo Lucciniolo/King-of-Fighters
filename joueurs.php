@@ -87,7 +87,135 @@
     		}
        		 
        	}
-	
+?>
+<div class="container" style="top:10px">
+
+	<form name="search" method="POST" action="joueurs.php" role="form">
+		<label>Rechercher les joueurs</label>
+		<button id="btn" type="submit" class="btn btn-default">OK</button><br/>
+		Position Min :
+		<input type="text" name="posMin">
+		Position Max :
+		<input type="text" name="posMax">
+		Journée :
+		<select type="text" name="day" class="input-small">
+			<?php
+				$day = mysqli_query($bdd, 
+					'SELECT journee
+					FROM positions
+					GROUP BY journee'
+					);
+
+				while($data = mysqli_fetch_assoc($day))
+			{
+				echo "<option>".$data['journee']."</option>";
+			}
+			?>
+
+		</select>
+		Saison :
+		<select type="text" name="saison" class="input-small">
+			<?php
+				$saison = mysqli_query($bdd, 
+					'SELECT saison
+					FROM positions
+					GROUP BY saison'
+					);
+
+				while($data = mysqli_fetch_assoc($saison))
+			{
+				echo "<option>".$data['saison']."</option>";
+			}
+			?>
+		</select>
+	</form>
+
+<?php
+
+	function search()
+	{
+
+		global $bdd;	
+		$cond = array();
+
+		/*$query = "SELECT `positions`.`position`, `joueurs`.`prenom`, `joueurs`.`nom`, `joueurs`.`image`
+				  FROM positions
+				  INNER JOIN joueurs
+				  ON `positions`.`joueur` = `joueurs`.`id`
+				  WHERE journee = 1
+				  AND saison = 1
+				  AND position >= 2 
+				  AND position <= 5";*/
+
+		$query = "SELECT `positions`.`position`, `joueurs`.`prenom`, `joueurs`.`nom`, `joueurs`.`image`
+				  FROM positions
+				  INNER JOIN joueurs
+				  ON `positions`.`joueur` = `joueurs`.`id`";
+
+		if(null!=($_POST['posMin']))
+		{
+			$posMin = $_POST['posMin'];
+
+			$cond[] = "position >= '$posMin'";
+		}
+
+		if(null!=($_POST['posMax']))
+		{
+			$posMax = $_POST['posMax'];
+
+			$cond[] = "position <= '$posMax'";
+		}
+
+		if(null!=($_POST['day']))
+		{
+			$day = $_POST['day'];
+
+			$cond[] = "journee = '$day'";
+		}
+
+		if(null!=($_POST['saison']))
+		{
+			$saison = $_POST['saison'];
+
+			$cond[] = "saison = '$saison'";
+		}
+
+
+		if (count($cond))
+		{
+			$query .= ' WHERE '.implode(' AND ', $cond).' ORDER BY `positions`.`position` ASC ';
+		}
+
+
+
+		$result = mysqli_query($bdd, $query);
+
+		echo "<table class='table table-condensed table-striped'>";
+		echo "<br/><label>Résultat de la recherche</label>";
+		echo "<tr><th>Position</th><th>Prénom</th><th>Nom</th><th></th></tr>";
+
+		
+
+			while($data = mysqli_fetch_assoc($result))
+			{
+				echo "<tr>";
+				echo "<td>".$data['position']."</td>";
+				echo "<td>".$data['prenom']."</td>";
+				echo "<td>".$data['nom']."</td>";
+				echo "<td>"."<img src='".strip_tags($data['image'])."'/>"."</td>";
+				echo "</tr>";
+			}
+
+		mysqli_free_result($result);
+	}	
+
+
+
+	if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+		search();
+	}
+
 
 mysqli_free_result($resultat);
 mysqli_free_result($resultat_2);
