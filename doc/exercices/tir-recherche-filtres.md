@@ -4,14 +4,14 @@
 
 	Rappel : utiliser la fonction **mt_rand($min, $max)**
 
-Vous devrez pour cela crée la fonction.
+Vous devrez pour cela créer la fonction.
 	
-	```php
+	<?php
 	function rechercher($element, $tableau){
 	
 	}
-	```php
-
+	?>
+	
 Exemple d'utilisation : 
 	
 	echo recherche(5, tableau);
