@@ -5,10 +5,12 @@
 	Rappel : utiliser la fonction **mt_rand($min, $max)**
 
 Vous devrez pour cela crée la fonction.
-
-function rechercher($element, $tableau){
 	
-}
+	```php
+	function rechercher($element, $tableau){
+	
+	}
+	```php
 
 Exemple d'utilisation : 
 	
