@@ -1,6 +1,6 @@
 <?php
 include('configuration.php');
-$bdd = mysqli_connect('localhost', 'compte', 'motdepasse', 'kof');
+$bdd = mysqli_connect($serveur, $utilisateur, $motdepasse, $basededonnees);
 include('kof.php');
 
 ?>
