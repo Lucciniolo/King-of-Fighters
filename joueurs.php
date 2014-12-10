@@ -179,10 +179,12 @@
 
 			$cond[] = "saison = '$saison'";
 		}
+		//	array("position >= 3", "position <= 4", "journee = 2", "saison = 4");
 
 
 		if (count($cond))
 		{
+			// Bien penser à mettre les espaces 
 			$query .= ' WHERE '.implode(' AND ', $cond).' ORDER BY `positions`.`position` ASC ';
 		}
 
