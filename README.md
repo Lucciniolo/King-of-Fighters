@@ -50,3 +50,15 @@ Cette page permet de s'inscrire sur le site.
 (à développer)
 Les utilisateurs de type "Admin" peuvent avoir accès à cette page.
 on)
+Dans administration :
+- Lancer les combats (un boutton)
+	-> Genere une nouvelle journée
+- Afficher suite à la pression du boutton "Lancer les combats"
+	->	Generation automatique de la liste des affrontements à faire
+		-> Creer un tableau des joueurs sans combat 
+		-> On parcours tous les joueurs avec une boucle, et dès que un joueur est séléctionné ainsi que son adversaire, ils sont retirés du tableau des joueurs sans combat. 
+		-> Prise en charge du Random via la fonction : TauxDeCombat = rand(0,1)/(PositionJoueur1 - PositionJoueur2)
+	->	Checkbocks pour choisir le gagnant, une fois que les matchs ont eu lieu
+	->	Boutton pour enregistrer la liste des gagnants
+		-> Lorsque l'on clique sur "Enregistrer"
+		-> On echange les positions entre les perdants et le gagnants
