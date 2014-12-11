@@ -55,7 +55,7 @@ include('kof.php');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/King-of-Fighters/">T-KOF</a>
+          <a class="navbar-brand" href="">T-KOF</a>
         </div>
       <ul class="nav navbar-nav">
         <li>

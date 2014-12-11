@@ -1,3 +1,7 @@
+Avant toute chose je souhaite attirer votre attention sur le fait que construire un espace membre digne de ce nom et sécurisé, ne se fait pas en deux jours et encore moins pour des débutants n'ayant aucune notion de sécurité.
+
+Aussi, ne vous présenterai-je que les principes généraux et nous ne ferrons que ce qui est humainement possible de faire deux jours.
+
 # Lecture documentation
 
 * Page PHP sur les mots de passe : http://php.net/manual/fr/faq.passwords.php
@@ -20,9 +24,43 @@ http://php.net/manual/fr/book.password.php
 
 A faire a travers le formulaire de la page **inscription.php**. Pour écire dans la base de données, penser à faire des "insert into" en SQL. Attention à la sécurité ... Vous devez essayer de prévenir les **injections SQL**.
 
+## Traitement des données du formulaire
+
+## Contenu d'un formulaire optionnel
+
+* Anti-robot : evite le spam
+* confirmation e-mail : evite la mauvaise saisie 
+* Confirmation mot de passe : evite la mauvaise saisie
+
+Certains sites font le choix de ne pas mettre de confirmations. L'intérêt : une inscription plus rapide. 
+
+## Traitement des données recues
+
+Afin de s'assurer de la pertinence des données inscrites dans la base de données, il faudra traiter les données recues.
+
+* vérification de la disponibilité du pseudo
+* vérifications sur le mot de passe ;
+* vérification de l'e-mail ;
+* protection anti-robot ?
+* envoi dans la base de données ou redirection si erreurs
+
+Nous pouvons créer des fonctions qui vont se charger de faire cette verification (exemple, verifierPseudo(). Ainsi une fois que l'on traitera les données recues dans le formulaire, on pourra faire ... "RECEVOIR "
+
 # Authentification de l'utilisateur 
 
-à Venir ...
+Lorsque l'utilisateur sera connecté, il faudra :
+
+* qu'apparaisse en bas, à coté de "Administration" un lien "Deconnexion" permettant de se ... déconnecter.
+* Que le formulaire de connexion disparaisse.
+
+
+On enregistrera le pseudo du membre dans une variable de session (accecible avec $_SESSION['pseudo']).
+
+Il convient de comparer les données saisies par l'utilisateur avec celles présentent dans la base de données. 
+
+# Page de déconnexion
+
+Destruction ou vidage de la session. Si le reste est bien codé, cela devrait 
 
 # Utilisation des sessions 
 
