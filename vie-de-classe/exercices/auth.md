@@ -33,7 +33,7 @@ Les sessions sont très proches des cookies dans leur utilisation.
 
 Vous allez échanger de place avec votre binome et tester son systeme de connexion. Votre but est de trouver des failles de sécurité ... Et de l'aider à les corriger. Nous ferrons un point sur les différentes failles trouvées. Pensez donc s'il-vous-plait à les noter. 
 
-# Liens intéressant
+# Liens intéressants
 
 Manuel PHP sur le hachage de mot de passe :
 http://php.net/manual/fr/faq.passwords.php
