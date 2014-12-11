@@ -23,22 +23,29 @@ mysqli_free_result($rMaxJournee);
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <h2>Classement actuel</h2>
           <p>Vous voulez savoir qui est en tête ? Quels sont les joueurs les plus talentueux ? C'est la page parfaite. Le classement de la saison en cours.</p>
           <p><a class="btn btn-default" href="classement.php" role="button">Le voir &raquo;</a></p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <h2>Liste des combattants</h2>
           <p>Venez voir qui à eu le courage de s'inscrire à notre tournoi. Vous pouvez également chercher un joueur par son nom</p>
           <p><a class="btn btn-default" href="joueurs.php" role="button">Les voir &raquo;</a></p>
        </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <h2>S'inscrire</h2>
           <p>Vous avez le cran de vous confronter aux meilleurs ? Très bien. Vous êtes à deux pas de les affronter ...</p>
           <p><a class="btn btn-default" href="inscription.php" role="button">S'inscrire &raquo;</a></p>
         </div>
+        <div class="col-md-6">
+          <h2>Votre joueur suivi</h2>
+          <p>Vous pouvez suivre un joueur dans la liste des joueurs. <br/>
+            <?php 
+            if (isset($_COOKIE['pseudo']))
+               echo "vous avez décidez de suivre : <b>" .$_COOKIE['pseudo']. "</b>"; ?>
+          <p><a class="btn btn-default" href="#" role="button">S'inscrire &raquo;</a></p>
+        </div> 
       </div>
 
-  
 <?php include("footer.php"); ?>
