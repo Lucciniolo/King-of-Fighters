@@ -75,3 +75,4 @@ Vous allez échanger de place avec votre binome et tester son systeme de connexi
 
 Manuel PHP sur le hachage de mot de passe :
 http://php.net/manual/fr/faq.passwords.php
+Excellent tutoriel : http://fr.wikihow.com/cr%C3%A9er-un-script-de-connexion-s%C3%A9curis%C3%A9e-avec-PHP-et-MySQL
