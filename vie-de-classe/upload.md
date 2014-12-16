@@ -58,10 +58,8 @@ Indice : Vous aurez besoin d'écrire dans une table les chemins des fichiers que
 * (Option) Mettre une taille limite
 
 ## Exercice projet
-Créer une page **profil.php**.
-L’objectif de cette page est de pouvoir afficher les informations stockées dans la table **profil** du joueur. Pour accéder à un joueur en particulier, on y accède par méthode GET. Ainsi pour voir le profil de Coolman : www.tkof.com/profil.php?=Coolman
-Créer une page editer-profil.php. Chaque joueur ne doit pouvoir accéder qu’à sa page. L’objectif de cette page est de permettre au joueur de mettre en ligne son image. 
 
-# Liens utiles
-http://www.w3schools.com/php/php_file_upload.asp
+* Créer une page **profil.php**.
+* L’objectif de cette page est de pouvoir afficher les informations stockées dans la table **profil** du joueur. Pour accéder à un joueur en particulier, on y accède par méthode GET. Ainsi pour voir le profil de Coolman : www.tkof.com/profil.php?=Coolman
+* Créer une page editer-profil.php. Chaque joueur ne doit pouvoir accéder qu’à sa page. L’objectif de cette page est de permettre au joueur de mettre en ligne son image. 
 
