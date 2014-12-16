@@ -29,7 +29,8 @@ Par exemple, si l’on cherche à modéliser un système de location de voiture,
 
 * Pour chaque type de relation, chercher un exemple dans la base de données du projet KOF. Si vous n'en trouvez pas (il se peut que certains type de relations n'existe pas dans notre projet, **proposer** des fonctionnalités simples qui en ont besoin. 
 * Appelez moi pour que je les valide.
-* Vous allez maintenant essayé de les implémenter.
+* Créer une table **profil**. Faire en sorte qu'une relation O2O relit cette table avec la table **joueurs**. Vous y stockerez des informations comme "compte Twitter", "Age", "Description" et toute informations que vous jugerez utile pour la page de profil de vos joueurs. 
+* Justifier ce choix.
 
 
 
