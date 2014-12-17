@@ -9,6 +9,114 @@
  		$classement[$c][$journee] = $classement[$c][$journee-1];
 	}	
 }*/
+	function afficherJoueursAdmin()
+	{
+		global $bdd;
+
+		$players = mysqli_query($bdd, 'SELECT prenom, nom, image, id, type FROM joueurs LIMIT 1,20');
+
+		echo "<table class='table table-condensed table-striped'>";
+		echo "<tr><th>Choisir</th><th>Statut actuel</th><th>Prénom</th><th>Nom</th><th></th></tr>";
+
+		while($data = mysqli_fetch_assoc($players))
+		{
+			echo "<tr>";
+			echo "<td>
+					<form action='administration.php' method='POST'>
+						".$data['id']."
+						<select>
+						<option value='type'>lambda</option>
+					 	<option value='type'>admin</option>
+						</select>
+						<input type='submit' value='Assigner'>
+					</form>
+				  </td>";
+			echo "<td>".$data['type']."</td>";
+			echo "<td>".$data['prenom']."</td>";
+			echo "<td>".$data['nom']."</td>";
+			echo "<td>"."<img src='".strip_tags($data['image'])."'/>"."</td>";
+			echo "</tr>";
+		}
+
+		echo "</table>";
+	}
+
+		function modifierType($type, $id)
+	{
+		global $bdd;
+
+		$modifier = mysqli_query($bdd, 'UPDATE joueurs SET type = $type WHERE id = $id');
+	
+		if($del)
+		{
+			echo "<div class='alert alert-success' role='alert'>Joueur modifié avec succès</div>";
+		}
+
+	}
+
+	// Cette fonction renvoie le message qui est affiché sur la page d'accueil. 
+	// Elle va le chercher dans la table MESSAGES de la base de données.
+	function messageAccueil(){
+		  global $bdd;
+
+          $txtAccueil = mysqli_query($bdd, 'SELECT texte FROM messages WHERE id = 1');
+          $dataTxt = mysqli_fetch_assoc($txtAccueil);
+          $message = $dataTxt['texte'];
+
+		  return $message;
+	}
+
+
+	function modifierAccueil($texte)
+	{
+		global $bdd;
+
+		$qText = 'UPDATE messages SET texte = "'.$texte.'" WHERE id = 1';
+
+		$modifierText = mysqli_query($bdd, $qText);
+	
+		if($modifierText)
+		{
+			echo "<div class='alert alert-success' role='alert'>Message modifié avec succès</div>";
+		}
+	}
+
+
+   function estConnecte()
+    {
+      if(isset($_SESSION['pseudo']))
+      { 
+        global $bdd;
+
+        $qType = "SELECT type FROM joueurs WHERE Pseudo = \"". $_SESSION['pseudo'] . "\"" ;
+        
+        $resType = mysqli_query($bdd, $qType);
+
+        $data = mysqli_fetch_array($resType);
+
+        if($data['type'] == 'superadmin')
+        {
+          return "superadmin";
+        }
+
+        elseif($data['type'] == 'admin')
+        {
+          return "admin";
+        }
+
+        elseif($data['type'] == 'lambda')
+        {
+          return "lambda";
+        }
+      }
+      
+      else
+      {
+        return false;
+      }
+
+    }
+
 
 
 function nouvelleJournee()

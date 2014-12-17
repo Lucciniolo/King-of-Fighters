@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('configuration.php');
 $bdd = mysqli_connect($serveur, $utilisateur, $motdepasse, $basededonnees);
 include('kof.php');
@@ -45,6 +46,63 @@ include('kof.php');
   </head>
 
   <body>
+<br><br><br>
+  <?php 
+
+
+    if (isset($_POST['name']))
+    {
+    setcookie('name', $_POST['name'], time() + 10*24*3600, null, null, false, true);
+    }
+
+
+
+    if (isset($_POST['Pseudo']) && isset($_POST['mdpInput']))
+    {
+
+      $query = "SELECT mdp, Pseudo FROM joueurs WHERE Pseudo = \"". $_POST['Pseudo'] . "\"" ;
+
+      $result = mysqli_query($bdd, $query);
+
+      $data = mysqli_fetch_array($result);
+      $motDePasse = $data['mdp'];
+
+
+      if($_POST['mdpInput'] != $motDePasse)
+      {        
+        echo "<div id='alert' class='alert alert-danger' role='alert'>Mauvais identifiants.</div>";
+        echo "
+        <script>
+            setTimeout(function(){
+              $('#alert').fadeOut();
+            },3000);
+        </script>";
+      }
+
+      else
+      {
+        $_SESSION['pseudo'] = $_POST['Pseudo'];
+
+        echo "<div id='alert' class='alert alert-success' role='alert'>BIENVENUE ".$_POST['Pseudo']."</div>";
+        echo "<script>
+                setTimeout(function(){
+                $('#alert').fadeOut();
+              },3000);
+              </script>";
+      }
+
+
+
+    }
+
+    if(isset($_POST['logout']))
+    {
+      $_SESSION['pseudo'] = array();
+      session_destroy();
+      header('Location:index.php');
+    }
+
+  ?>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -68,17 +126,36 @@ include('kof.php');
           <a href="joueurs.php">Liste des joueurs</a>
         </li>
       </ul>
-              <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
-            <div class="form-group">
-              <input type="text" placeholder="Pseudo" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Mot de passe" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Se connecter</button>
-            <a href="inscription.php"class="btn btn-success">S'inscrire</a>
-          </form>
+        <div id="login" class="navbar-collapse collapse">
+          
+          <?php
+
+            if(!estConnecte())
+            {
+              ?>
+                <form class='navbar-form navbar-right' role='form' action='index.php' method='POST'>
+                  <div class='form-group'>
+                    <input type='text' placeholder='Pseudo' name='Pseudo' class='form-control'>
+                  </div>
+                  <div class='form-group'>
+                    <input type='password' placeholder='Mot de passe' name='mdpInput' class='form-control'>
+                  </div>
+                  <button type='submit' class='btn btn-success'>Se connecter</button>
+                </form>
+                <?php
+            }
+            if(estConnecte())
+            {
+              echo "
+                <form id='logout' class='navbar-form navbar-right' action='index.php' method='POST'>
+                  <span style='color:white'>".$_SESSION['pseudo']."&nbsp</span>
+                  <button name='logout' type='submit' class='btn btn-default'>Se déconnecter</button>
+            
+                </form>";
+            }
+
+          ?>
+
         </div><!--/.navbar-collapse -->
       </div>
     </nav>

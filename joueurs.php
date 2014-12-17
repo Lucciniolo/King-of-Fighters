@@ -1,8 +1,6 @@
 <?php
-if (isset($_POST['pseudo'])) {
-	 // Ecriture d'un cookie
-	 setcookie('pseudo', $_POST['pseudo'], time() + 10*24*3600, null, null, false, true);
-}
+session_start();
+
 	function search()
 	{
 		global $bdd;
@@ -73,7 +71,7 @@ if (isset($_POST['pseudo'])) {
 		$result = mysqli_query($bdd, $query);
 
 		echo "<table class='table table-condensed table-striped'>";
-		echo "<tr><th>Position</th><th>Prénom</th><th>Nom</th><th>image</th><th>Vedette</th></tr>";
+		echo "<tr><th>Position</th><th>Prénom</th><th>Nom</th><th>image</th><th>Vedette</th><th>Supprimer</th></tr>";
 
 		while($data = mysqli_fetch_assoc($result))
 			{
@@ -86,6 +84,13 @@ if (isset($_POST['pseudo'])) {
 				<form action="joueurs.php" method="POST">
 				   <input type="hidden" name="pseudo" value="<?php echo $data['Pseudo']; ?>" >
 				   <input type="submit" value="Choisir">
+				</form>
+				<?php
+				echo "</td>";
+				echo "<td>"; ?> 
+				<form action="joueurs.php" method="POST">
+				   <input type="hidden" name="supPseudo" value="<?php echo $data['Pseudo']; ?>" >
+				   <input type="submit" value="Supprimer">
 				</form>
 				<?php
 				echo "</td>";

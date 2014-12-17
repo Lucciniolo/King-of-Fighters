@@ -17,6 +17,9 @@ mysqli_free_result($rMaxJournee);
         <h1>Tournois King Of Fighters</h1>
         <p>Bienvenur sur T-KOF, site de gestionde tournoi de King Of Fighters en ligne. <b>Nous sommes actuellement à la journée <?php  echo $maxJournee; ?> de la saison <?php  echo $maxSaison;  ?></b>. N'hésitez pas à vous inscrire pour rejoindre les combats.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">En savoir plus &raquo;</a></p>
+        <?php 
+            echo messageAccueil();
+        ?>
       </div>
     </div>
 
