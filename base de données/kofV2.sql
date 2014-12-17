@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 26 Novembre 2014 à 16:47
+-- Généré le :  Mer 17 Décembre 2014 à 14:22
 -- Version du serveur :  5.6.20
 -- Version de PHP :  5.5.15
 
@@ -33,19 +33,20 @@ CREATE TABLE IF NOT EXISTS `joueurs` (
   `date_inscription` date NOT NULL,
   `Pseudo` varchar(10) NOT NULL,
   `mdp` varchar(20) NOT NULL,
-  `image` varchar(200) NOT NULL DEFAULT 'http://placehold.it/50x50'
+  `image` varchar(200) NOT NULL DEFAULT 'http://placehold.it/50x50',
+  `type` varchar(15) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Contenu de la table `joueurs`
 --
 
-INSERT INTO `joueurs` (`id`, `nom`, `prenom`, `date_inscription`, `Pseudo`, `mdp`, `image`) VALUES
-(1, 'BOULKA', 'Etienne', '2014-11-24', 'Coolman', '123', 'http://placehold.it/50x50'),
-(2, 'DIDOU', 'Etienne', '2014-11-24', 'Cuisto', '123', 'http://placehold.it/50x50'),
-(3, 'BOULKA', 'Jules', '2014-11-24', 'Hotman', '123', 'http://placehold.it/50x50'),
-(4, 'PINTOU', 'Jules', '2014-11-24', 'Spiderman', '123', 'http://placehold.it/50x50'),
-(5, 'AMARi', 'Sofiane', '2014-11-26', 'Sof', '123', 'http://placehold.it/50x50');
+INSERT INTO `joueurs` (`id`, `nom`, `prenom`, `date_inscription`, `Pseudo`, `mdp`, `image`, `type`) VALUES
+(1, 'BOULKA', 'Etienne', '2014-11-24', 'Coolman', '123', 'http://placehold.it/50x50', 'superadmin'),
+(2, 'DIDOU', 'Etienne', '2014-11-24', 'Cuisto', '123', 'http://placehold.it/50x50', 'admin'),
+(3, 'BOULKA', 'Jules', '2014-11-24', 'Hotman', '123', 'http://placehold.it/50x50', 'lambda'),
+(4, 'PINTOU', 'Jules', '2014-11-24', 'Spiderman', '123', 'http://placehold.it/50x50', 'lambda'),
+(5, 'AMARi', 'Sofiane', '2014-11-26', 'Sof', '123', 'http://placehold.it/50x50', 'lambda');
 
 -- --------------------------------------------------------
 
@@ -73,6 +74,24 @@ INSERT INTO `journees` (`date`, `saison`, `journee`) VALUES
 ('2014-12-15', 2, 4),
 ('2014-11-22', 1, 5),
 ('2014-12-22', 2, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `messages`
+--
+
+CREATE TABLE IF NOT EXISTS `messages` (
+`id` int(11) NOT NULL,
+  `texte` text NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `messages`
+--
+
+INSERT INTO `messages` (`id`, `texte`) VALUES
+(1, '<p>Bonjour,</p>\r\n<p>&nbsp;</p>\r\n<p>AHAHAHAHAAH TOUT LE MONDE EST <strong>HEUREUX.</strong></p>');
 
 -- --------------------------------------------------------
 
@@ -122,6 +141,12 @@ ALTER TABLE `journees`
  ADD PRIMARY KEY (`journee`,`saison`);
 
 --
+-- Index pour la table `messages`
+--
+ALTER TABLE `messages`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `positions`
 --
 ALTER TABLE `positions`
@@ -136,6 +161,11 @@ ALTER TABLE `positions`
 --
 ALTER TABLE `joueurs`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT pour la table `messages`
+--
+ALTER TABLE `messages`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
