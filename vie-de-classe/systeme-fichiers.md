@@ -63,7 +63,7 @@ Vous pouvez utiliser **un validateur JSON** qui va vérifier votre synthaxe. En 
 
 # Exercice 
 
-* Créer un **simple** fichier **infos-joueurs.json** qui contient :
+* Voici un **simple** fichier **json** qui peut vous servir de modèle :
 
         [
           {
@@ -84,7 +84,6 @@ Vous pouvez utiliser **un validateur JSON** qui va vérifier votre synthaxe. En 
           }
         ]
     
-Ces informations sont en **durs** et ne sont pas générés par notre scripts.
 
 ## Exerice 1 : exercice isolé
 
