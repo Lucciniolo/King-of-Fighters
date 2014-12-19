@@ -1,6 +1,6 @@
 # Définition
 
-Une API est une interface avec votre application. C'est un moyen de communiquer avec elle. Ainsi par exemple, en tapant www.tkof.com/profil.php?=**Coolman**&info=**Twitter** l'application devra renvoyer le compte Twitter de Coolman dans une forme que nous sommes capable d'interpreter. Les deux formes les plus utilisés sur le Web sont XML et Json. Nous en avions déjà parlé.
+Une API est une interface avec votre application. C'est un moyen de communiquer avec elle. Ainsi par exemple, en tapant www.tkof.com/profil.php?Pseudo=Coolman&info=Twitter l'application devra renvoyer le compte Twitter de Coolman dans une forme que nous sommes capable d'interpreter. Les deux formes les plus utilisés sur le Web sont XML et Json. Nous en avions déjà parlé.
 En somme, une API est une manière d'intéragire avec d'autres programmes. Les programmes complexes sont souvent composés de plusieurs briques. Chacune d'entre elles communique avec les autres via des API. Il est donc important pour nous de voir non seulement des API existantes mais également d'en programmer une minimaliste. 
 
 ## Exemples d'API
@@ -72,5 +72,12 @@ Nous allons faire une API pour deux fonctionnalités. Elles doivent renvoyer les
 
 Voici les fonctionnalités à développer pour le projet : 
 
-* La position du joueur quand on donne le nom du joueur, la saison et la journée.
+* La position du joueur quand on donne le nom du joueur, la saison et la journée **via des paramètres d'URL**. Nous allons utiliser la particularité des formulaires envoyés par la METHOD "GET" qui transmettent les données dans l'URL. J'attire votre attention sur le fait que nous développons ici une API. Une API n'est pas destinée à l'utilisateur final mais aux développeurs. Nous n'allons pas développer une interface en HTML mais simplement coder un script qui exploitera l'URL donnée.
+
+Ainsi en tappant (comme dit dans l'introduction) : 
+
+    www.tkof.com/profil.php?Pseudo=Coolman&info=Twitter
+
+Notre API devra générer un text renvoyant les donneés demandées au format JSON.
+
 * Le message d'accueil écrit par un administrateur. On pourrait imaginer une application qui utilisera cette API pour récuperer très simplement ce message et l'afficher sur une application mobile par exemple.
