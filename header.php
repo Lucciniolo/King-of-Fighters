@@ -28,11 +28,26 @@ include('kof.php');
 
     <title>T-KOF : tournois de King of Fighters</title>
 
+     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+    <title>T-KOF : tournois de King of Fighters</title>
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
+    <link href="css/jumbotron.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -56,18 +71,14 @@ include('kof.php');
     }
 
 
-
     if (isset($_POST['Pseudo']) && isset($_POST['mdpInput']))
     {
-
-      $query = "SELECT mdp, Pseudo FROM joueurs WHERE Pseudo = \"". $_POST['Pseudo'] . "\"" ;
-
+      $query = "SELECT mdp, Pseudo, id FROM joueurs WHERE Pseudo = \"". $_POST['Pseudo'] . "\"" ;
       $result = mysqli_query($bdd, $query);
-
       $data = mysqli_fetch_array($result);
+      $_SESSION['id'] = $data['id'];
+      $_SESSION['pseudo'] = $_POST['Pseudo'];
       $motDePasse = $data['mdp'];
-
-
       if($_POST['mdpInput'] != $motDePasse)
       {        
         echo "<div id='alert' class='alert alert-danger' role='alert'>Mauvais identifiants.</div>";
@@ -81,8 +92,6 @@ include('kof.php');
 
       else
       {
-        $_SESSION['pseudo'] = $_POST['Pseudo'];
-
         echo "<div id='alert' class='alert alert-success' role='alert'>BIENVENUE ".$_POST['Pseudo']."</div>";
         echo "<script>
                 setTimeout(function(){
@@ -91,13 +100,13 @@ include('kof.php');
               </script>";
       }
 
-
-
     }
 
     if(isset($_POST['logout']))
     {
       $_SESSION['pseudo'] = array();
+      setcookie('remember');
+      unset($_COOKIE['remember']);
       session_destroy();
       header('Location:index.php');
     }
@@ -146,12 +155,15 @@ include('kof.php');
             }
             if(estConnecte())
             {
-              echo "
+              $idJoueur= "'".$_SESSION['id']."'";
+              echo "DEBUG : ". $idJoueur;
+
+               ?>
                 <form id='logout' class='navbar-form navbar-right' action='index.php' method='POST'>
-                  <span style='color:white'>".$_SESSION['pseudo']."&nbsp</span>
+                <a style='color:white' href="profil.php?id=<?php echo $idJoueur; ?>"><?php echo $_SESSION['pseudo']; ?>&nbsp</a>
                   <button name='logout' type='submit' class='btn btn-default'>Se déconnecter</button>
             
-                </form>";
+                </form> <?php
             }
 
           ?>

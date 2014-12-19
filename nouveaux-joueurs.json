@@ -1,0 +1,32 @@
+[
+  {
+    "nom": "Burch",
+    "prenom": "Meyers",
+    "Pseudo": "Walker",
+    "image": "http://placehold.it/32x32",
+    "mdp": 32,
+    "date": "2014-11-20",
+    "type": "male",
+    "donneType": "admin"
+  },
+  {
+    "nom": "Jimenez",
+    "prenom": "Sandoval",
+    "Pseudo": "Cummings",
+    "image": "http://placehold.it/32x32",
+    "mdp": 32,
+    "date": "2014-07-21",
+    "type": "male",
+    "donneType": "admin"
+  },
+  {
+    "nom": "Olive",
+    "prenom": "Cameron",
+    "Pseudo": "Roberts",
+    "image": "http://placehold.it/32x32",
+    "mdp": 34,
+    "date": "2014-02-28",
+    "type": "female",
+    "donneType": "lambda"
+  }
+]

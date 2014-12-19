@@ -1,5 +1,3 @@
-// Contient les fonctions utiles à notre application
-
 <?php 
 // 1. Creer une nouvelle journée
 // 2. Copie colle la journée journee-1 dans la journée journee
@@ -231,5 +229,62 @@ function journeeMaximum($maxSaison){
 	
 	return $maxJournee;
 }
+
+// Inscrit dans la bdd la description que le joueur à complété
+	function textPerso($texte, $id)
+	{
+		global $bdd; 
+		$qText = 'UPDATE profils SET description = "'.$texte.'" WHERE id = '.$id;
+		// echo "debug qtext : ". $qText;
+		mysqli_query($bdd, $qText);
+		echo "<div class='alert alert-success' role='alert'>Message modifié avec succès</div>";
+
+	}
+
+
+// Retourne la description du profil (par ex. dans le text input de la page modifier profil)
+	function afficherTextPerso($id)
+	{
+		global $bdd;
+
+		$getText = mysqli_query($bdd, 
+			'SELECT description
+			FROM profils
+			WHERE id = "'.$id.'"');
+
+		$data = mysqli_fetch_assoc($getText);
+		$description = $data['description'];
+
+		return $description;
+	}
+
+//Cette fonction génère, sauvegarde et retourne un token
+//Vous pouvez lui passer en paramètre optionnel un nom pour différencier les formulaires
+function generer_token($nom = '')
+{
+	$token = uniqid(rand(), true);
+	$_SESSION[$nom.'_token'] = $token;
+	$_SESSION[$nom.'_token_time'] = time();
+	return $token;
+}
+
+//Cette fonction vérifie le token
+//Vous passez en argument le temps de validité (en secondes)
+//Le referer attendu (adresse absolue, rappelez-vous :D)
+//Le nom optionnel si vous en avez défini un lors de la création du token
+function verifier_token($temps, $referer, $nom = '')
+{
+if(isset($_SESSION[$nom.'_token']) && isset($_SESSION[$nom.'_token_time']) && isset($_POST['token']))
+	if($_SESSION[$nom.'_token'] == $_POST['token'])
+		if($_SESSION[$nom.'_token_time'] >= (time() - $temps)){
+				// echo "Jaime tous le monde. HTTP REFERER ". $_SERVER['HTTP_REFERER'];
+			if($_SERVER['HTTP_REFERER'] == $referer)
+				return true;
+	}
+return false;
+}
+?>
+
+
 
  ?>
