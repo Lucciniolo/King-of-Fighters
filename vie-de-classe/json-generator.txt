@@ -1,0 +1,17 @@
+[
+  '{{repeat(5, 7)}}',
+  {
+    index: '{{index()}}',
+    nom: '{{firstName()}}',
+    prenom: '{{surname()}}',
+    Pseudo: '{{surname()}}',
+    image: 'http://placehold.it/32x32',
+    mdp: '{{integer(20, 40)}}',
+    date: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd")}}',
+    type: '{{gender()}}',
+    donneType: function (tags) {
+      var type = ['superadmin', 'admin', 'lambda'];
+      return type[tags.integer(0, type.length - 1)];
+  	}
+  }
+]
