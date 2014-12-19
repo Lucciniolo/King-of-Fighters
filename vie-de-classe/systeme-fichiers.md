@@ -24,10 +24,10 @@ Si je vous dis "NTFS" ou "FAT", cela vous dit-il quelque chose ? Très probablem
 
 ## Lecture d'une page HTML déjà existante
 
-Nous allons voir dans cet exemple comment on peut combiner l'utilisation des expressions régulières.
+Nous allons voir dans cet exemple comment on peut combiner l'utilisation des expressions régulières avec le système de fichier.
 
     <?
-    // On choisi un fichier présent sur notre site comme "joueurs.php"
+    // On choisi un fichier présent sur notre site comme "header.php"
     $fp = fopen("header.php","r");
     //on parcourt toutes les lignes
     while (!feof($fp)) { 
