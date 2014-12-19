@@ -4,7 +4,7 @@ Nous allons étudier dans ce cours la manière de lire et écrire dans des fichi
 
 Avant de se poser la question de commenton travaille avec des fichiers en PHP, il est intérésant d'introduire la notion de **système de fichier**.
 Pour stocker des informations, il existe de nombreuses manières. Nous en avons étudié une à travers les bases de donnéees relationnelles. 
-Un système de données offre à l'utilisateur une vue abstraite sur ses données et permet de les localiser à partir d'un chemin d'accès. Il nous permet de trouver, écrire et lire un fichier.
+Un système de fichiers offre à l'utilisateur une vue abstraite sur ses données et permet de les localiser à partir d'un chemin d'accès. Il nous permet de trouver, écrire et lire un fichier.
 Si je vous dis "NTFS" ou "FAT", cela vous dit-il quelque chose ? Très probablement. Il s'agit de systemes de fichiers windows. Chaque système de fichier à ses spécificités, avantages et inconvéniants. 
 
 ## Ecriture et lecture d'un fichier en PHP
