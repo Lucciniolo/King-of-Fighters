@@ -102,7 +102,7 @@ Vous allez devoir créer le script qui permet de récupérer les données des jo
 
 Nous allons utiliser la fonction fseek qui permet de placer son "pointeur" à l'ondroit que l'on veut du fichier.
 Pour plus d'informations : [manuel PHP fseek](http://php.net/manual/fr/function.fseek.php)
-* (6) Nous vons maintenant ue fonction qui permet d'enregister **un seul** joueur dans notre base de données. Notre objectif étant d'enregistrer tous les blocs présent dans notre fichier, vous allez devoir concevoir l'algorithme qui permet de passer d'un bloc à l'autre.
+* (6) Notre objectif étant d'enregistrer tous les blocs présent dans notre fichier, vous allez devoir concevoir l'algorithme qui permet de passer d'un bloc à l'autre.
 
 
 *Pour les curieux* : le fichier **nouveaux-joueurs.json** a été généré avec le site **json generator**. Je vous ai mis la structure qui a permis de crééer automatiquement ce jeu de données dans **vie-de-classe/json-generator.txt**.*
