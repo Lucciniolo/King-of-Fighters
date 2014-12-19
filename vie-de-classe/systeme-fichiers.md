@@ -95,9 +95,9 @@ Ces informations sont en **durs** et ne sont pas générés par notre scripts.
 * **(2)** Télécharger le fichier **nouveaux-joueurs.json** qui est dans vie-de-classe/ . Ce fichier contient une liste de joueurs au format JSON.
 
 Vous allez devoir créer le script qui permet de récupérer les données des joueurs dans *nouveaux-joueurs.json et les importer dans la base de données. Pour ce faire, il faut procéder par étapes :
-* **(3)** Créer la fonction **trouver-bloc("1")** qui récupèrera le premier bloc entre crochets. Pour ce faire, vous allez devoir coder une expression régulière.  La fonction trouver-bloc() doit renvoyer simplement un bloc (donc les données d'un joueur).
+* **(3)** Créer la fonction **trouver-bloc("1")** qui récupèrera le premier bloc entre crochets. Pour ce faire, vous allez devoir coder une expression régulière.  La fonction trouver-bloc("1") doit renvoyer simplement le premier bloc (donc les données d'un joueur).
 * **(4)** Créer la fonction **retourner-info("prenom", $bloc)** qui renvoit le prenom d'un $bloc. Ainsi en changeant simple le paramètre de la fonction, vous pourez récupérer les informations que vous voulez. 
-* **(5**) Créer la fonction **enregistrer-bloc()** du programme qu via *simplement* récupérer le premier bloc. Ensuite pour chaque "clé" (exemple de clé : Pseudo) l'écrire dans la base de données. Ainsi on aura ajouté le premier joueur.
+* **(5**) Créer la fonction **enregistrer-bloc("1")** du programme qu via *simplement* récupérer le premier bloc. Ensuite pour chaque "clé" (exemple de clé : Pseudo) l'écrire dans la base de données. Ainsi on aura ajouté le premier joueur.
 
 
 Nous allons utiliser la fonction fseek qui permet de placer son "pointeur" à l'ondroit que l'on veut du fichier.
