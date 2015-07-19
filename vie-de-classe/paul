@@ -1,0 +1,17 @@
+function find_block($index)
+{
+	$file = fopen('nouveaux-joueurs.json','r');
+	$string = "";
+
+	while(!feof($file))
+	{
+		$string .= fgets($file);
+	}
+
+	fclose($file);
+
+	preg_match_all("/{[^}]+}/",$string,$matches);
+
+	echo $matches[0][$index-1];
+	
+}
